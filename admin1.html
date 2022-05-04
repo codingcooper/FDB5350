@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="table_.css">
+  <link rel="stylesheet" href="ex.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #76dbe2;
+  color: white;
+  font-size: 20px;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: rgb(105, 225, 230);
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+</style>
+</head>
+<body>
+    <head>
+        <link rel="stylesheet" href="table_.css">
+        <link rel="stylesheet" href="ex.css">
+        <style>
+            
+        </style>
+        </head>
+        <body>
+    </ul><br><br><br>
+<center><h1>Admin Login</h1>
+<h2>Enter your credentials</h2></center>
+
+<div class="container">
+  <form action="admin.html" onsubmit="return validate()">
+    <label for="usrname" style="font-size:20px;font-family:'Times New Roman', Times, serif">Username</label>
+    <input type="text" id="usrname" name="usrname" required>
+
+    <label for="psw" style="font-size:20px;font-family:'Times New Roman', Times, serif">Password</label>
+    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+    
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+				
+<script>
+function validate(){
+if(   document.getElementById("usrname").value == "Admin"
+       && document.getElementById("psw").value == "Admin@123" )
+    {
+        alert( "validation succeeded" );
+        window.href("http://localhost/demo/admin.html");
+    }
+    else
+    {
+        alert( "validation failed" );
+    }
+}
+</script>
+
+</body>
+</html>
